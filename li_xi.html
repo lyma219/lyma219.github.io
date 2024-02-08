@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="li_xi.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Lì xì cho Quân nèo!!!!!!!!!!!</h1>
+        <img id = "img_rong" src = "rong_li_xi.jpg" alt = "Rồng cute lì xì nè"/>
+    </header>
+    <div class = "button_div">
+        <button id = "lixi">
+            Lì xì cho bạn yêu nèy:3
+        </button>
+        <button id = "deo">
+            Đéo OK!!!
+        </button>
+        <div>
+            <img src="" alt = "anh QR">
+        </div>
+    </div>
+    <footer>
+        <marquee behavior="scroll" direction="left" width="100%">
+            <p id = "chu_an">
+                Quân là một chàng trai năm nay 21 tuối!!!!
+                Nhưng anh ta chưa lớn và năm nào cùng đòi lì xì từ người yêu :3
+            </p>
+        </marquee>
+        <p>Bản quyền: Ly Ma</p>
+    </footer>
+    <script>
+        const lixiButton = document.getElementById("lixi");
+        const deoButton = document.getElementById("deo");
+
+        let dem = 0;
+    
+        deoButton.addEventListener("click", swapButtons);
+        deoButton.addEventListener("mouseover", swapButtons);
+    
+        function swapButtons() {
+            dem ++;
+            alert(dem);
+          // Đổi vị trí button
+          if(dem <  3){
+            const lixiPosition = lixiButton.getBoundingClientRect();
+            const deoPosition = deoButton.getBoundingClientRect();
+            lixiButton.style.left = deoPosition.left + "px";
+            lixiButton.style.top = deoPosition.top + "px";
+            deoButton.style.left = lixiPosition.left + "px";
+            deoButton.style.top = lixiPosition.top + "px";
+          // Rung lắc button "deo"
+            deoButton.classList.add("shake");
+            setTimeout(() => {
+                deoButton.classList.remove("shake");
+            }, 1000);
+          }
+          else{
+            const lixiPosition = lixiButton.getBoundingClientRect();
+            const deoPosition = deoButton.getBoundingClientRect();
+            lixiButton.style.left = deoPosition.left + "px";
+            lixiButton.style.top = deoPosition.top + "px";
+            deoButton.style.visibility = "hidden";
+            lixiButton.classList.toggle("scale");
+            lixiButton.style.width = "250px";
+            lixiButton.style.height = "80px";
+          }
+        }
+    </script>
+</body>
+</html>
+
